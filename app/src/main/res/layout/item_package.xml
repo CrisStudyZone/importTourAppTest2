@@ -67,8 +67,9 @@
             android:id="@+id/buttonBuy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/buy_button_label"
-            />
+            android:layout_gravity="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/buy_button_label" />
 
     </LinearLayout>
 

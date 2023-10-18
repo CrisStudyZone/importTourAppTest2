@@ -7,8 +7,11 @@ import android.widget.Button
 import android.widget.RatingBar
 import android.widget.TextView
 import android.content.Context
+import android.content.Intent
 import android.widget.ImageView
-//import com.squareup.picasso.Picasso
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
+import com.squareup.picasso.Picasso
 
 import androidx.recyclerview.widget.RecyclerView
 import data.TourPackage
@@ -37,14 +40,22 @@ class PackagesAdapter(private val context: Context, private val packages: List<T
         holder.durationTextView.text = "Duration: ${currentPackage.duration} days"
         holder.starsRatingBar.rating = currentPackage.stars.toFloat()
         holder.priceTextView.text = "Price: $${currentPackage.price}"
-        //Picasso.with(context).load(currentPackage.logo).into(holder.imageViewPackage)
+        Picasso.with(context)
+            .load(currentPackage.logo)
+            .placeholder(R.drawable.pngtreecartoon_wind_travel_travel_abroad_1017791)
+            .error(R.drawable.recorte_travel)
+            .into(holder.imageViewPackage)
 
         val buyButtonLabel = context.getString(R.string.buy_button_label_template, position + 1)
         holder.buyButton.text = buyButtonLabel
 
         holder.buyButton.setOnClickListener {
                 // Acción al hacer clic en el botón "Buy"
-                // Puedes implementar la lógica para comprar aquí
+            // Crea un Intent para iniciar PurchaseActivity
+            val intent = Intent(context, PurchaseActivity::class.java)
+
+            // Inicia PurchaseActivity utilizando el contexto proporcionado desde la actividad principal
+            context.startActivity(intent)
         }
     }
 

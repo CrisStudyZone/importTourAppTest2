@@ -4,7 +4,7 @@
     <string name="sing_up_button_label">Sing Up</string>
     <string name="name_text_label">Enter Your Name</string>
     <string name="pass_text_label">Enter Your Password</string>
-    <string name="package_name_text_label">Buy</string>
+    <string name="package_name_text_label">Package Name</string>
     <string name="transport_text_label">Transport</string>
     <string name="duration_text_label">Duration</string>
     <string name="price_text_label">Price</string>
